@@ -1,0 +1,17 @@
+* Plan For Application
+- Root:
+- Header:
+- Shopping List:
+- Shopping List 
+- Shopping List Edit
+- Models:
+- Ingredient
+- Recipe Book:
+- Recipe List
+- Recipe Item
+- Recipe Detail
+- Models:
+- Recipe
+
+This also involves:
+- Feature > Component > Model
