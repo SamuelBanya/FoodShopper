@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "food-saver": {
+    "food-shopper": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/food-saver",
+            "outputPath": "dist/food-shopper",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "food-saver:build:production"
+              "browserTarget": "food-shopper:build:production"
             },
             "development": {
-              "browserTarget": "food-saver:build:development"
+              "browserTarget": "food-shopper:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "food-saver:build"
+            "browserTarget": "food-shopper:build"
           }
         },
         "test": {
