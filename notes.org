@@ -55,3 +55,12 @@ ng g c recipes/recipe-list/recipe-item --skip-tests
 #+BEGIN_SRC bash
 ng g c shopping-list --skip-tests
 #+END_SRC
+
+* How The 'shopping-edit' Component Was Created:
+- I used the following command to place the new 'shopping-edit' component within the existing 'shopping-list' folder:
+#+BEGIN_SRC bash
+ng g c shopping-list/shopping-edit --skip-tests
+#+END_SRC
+
+* How Other Components Were Modified
+- I basically used their corresponding child components within the related parent HTML files within most of the parent components along with Bootstrap specific styling classes
