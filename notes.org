@@ -1,17 +1,57 @@
 * Plan For Application
+CENTER:
 - Root:
 - Header:
+
+LEFT:
 - Shopping List:
 - Shopping List 
 - Shopping List Edit
-- Models:
-- Ingredient
+
+RIGHT:
+- Recipes
 - Recipe Book:
 - Recipe List
 - Recipe Item
 - Recipe Detail
-- Models:
-- Recipe
+
+MODELS:
+- Component
+- Feature
 
 This also involves:
 - Feature > Component > Model
+
+* How The 'header' Component Was Created
+- I created this manually as per the video within the 'src/app/header' directory
+
+* How The 'recipes' Component Was Created 
+- You can use the 'ng generate component' command, but I opted to use the alias version aka 'ng g c (name of new component)'
+- I also used the '--skip-tests' parameter to prevent Angular from adding a testing file which isn't needed right now
+#+BEGIN_SRC bash
+ng g c recipes --skip-tests
+#+END_SRC
+
+* How The 'recipe-list' Component Was Created
+- I used the following command to place the new 'recipe-list' component into the already existing 'recipes' folder:
+#+BEGIN_SRC bash
+ng g c recipes/recipe-list --skip-tests
+#+END_SRC
+
+* How The 'recipe-detail' Component Was Created
+- I used the following command to place the new 'recipe-detail' component into the already existing 'recipes' folder:
+#+BEGIN_SRC bash
+ng g c recipes/recipe-detail --skip-tests
+#+END_SRC
+
+* How The 'recipe-item' Component Was Created:
+- I used the following command to place the new 'recipe-item' component into the already existing 'recipes/recipe-list' folder:
+#+BEGIN_SRC bash
+ng g c recipes/recipe-list/recipe-item --skip-tests
+#+END_SRC
+
+* How The 'shopping-list' Component Was Created:
+- I used the following command:
+#+BEGIN_SRC bash
+ng g c shopping-list --skip-tests
+#+END_SRC
