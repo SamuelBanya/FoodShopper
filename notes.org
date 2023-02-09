@@ -64,3 +64,6 @@ ng g c shopping-list/shopping-edit --skip-tests
 
 * How Other Components Were Modified
 - I basically used their corresponding child components within the related parent HTML files within most of the parent components along with Bootstrap specific styling classes
+
+* How Bootstrap Version 3 Was Installed
+- NOTE: I didn't realize that the dependence on Bootstrap Version 3 was so heavy, so I had to figure that out the hard way, but basically if you just stick with 'npm install --save bootstrap@3', you will be good to go for this course
