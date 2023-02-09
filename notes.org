@@ -67,3 +67,20 @@ ng g c shopping-list/shopping-edit --skip-tests
 
 * How Bootstrap Version 3 Was Installed
 - NOTE: I didn't realize that the dependence on Bootstrap Version 3 was so heavy, so I had to figure that out the hard way, but basically if you just stick with 'npm install --save bootstrap@3', you will be good to go for this course
+
+* How A Collapsable Hamburger Menu Was Added
+- I followed along with the related '51. Alternative Non-Collapsable Navigation Bar' instructions, andded the following changes in the 'src/app/header/header.component.html' file:
+#+BEGIN_SRC html
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+	<span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+  </button>
+  <a routerLink="/" class="navbar-brand">Recipe Book</a>
+</div>
+<div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+#+END_SRC
+
+I then added the following to the 'src/app/header/header.component.ts' file:
+#+BEGIN_SRC ts 
+collapsed = true;
+#+END_SRC
