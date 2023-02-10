@@ -84,3 +84,30 @@ I then added the following to the 'src/app/header/header.component.ts' file:
 #+BEGIN_SRC ts 
 collapsed = true;
 #+END_SRC
+
+* How The 'recipe' Model Was Created
+- I created a new model by creating a new file called 'recipe.model.ts' in the 'recipes' folder
+- I then exported a Typescript class called 'Recipe' within that file 
+- I then created the 'name' property and made sure it was 'public' to allow it to be available wherever this is imported
+- This can be found here: 
+#+BEGIN_SRC ts
+export class Recipe {
+    public name: string;
+    public description: string;
+    public imagePath: string;
+#+END_SRC
+- I repeated this process for the 'description' which holds the description of the recipe, and the 'imagePath' which contains the URL for the recipe image itself
+- I then created the 'constructor' function which is basically run initially every time a component a class is created:
+#+BEGIN_SRC ts
+export class Recipe {
+    public name: string;
+    public description: string;
+    public imagePath: string;
+
+    constructor(name: string, desc: string, imagePath: string) {
+        this.name = name;
+        this.description = desc;
+        this.imagePath = imagePath;
+    }
+}
+#+END_SRC
