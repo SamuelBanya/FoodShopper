@@ -174,3 +174,39 @@ export class RecipeListComponent {
   }
 }
 #+END_SRC
+
+* How I Was Able To Add Recipes Dynamically With '*ngFor' Directive
+- I added the '*ngFor' directive inside the 'recipe-list.component.html' file to access the Recipe model contents from the 'recipe-list.component.ts' file.
+- I then used string interpolation via '{{}}' for the 'recipe.name' and 'recipe.description' properties of the 'Recipe' model
+- I also used data binding for the 'src' property accordingly to allow for a two-way street style communication when this is assigned
+#+BEGIN_SRC html
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn btn-success">New Recipe</div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12">
+        <a 
+            href="#" 
+            class="list-group-item clearfix" 
+            *ngFor="let recipe of recipes"
+        >
+            <div class="pull-left">
+                <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+                <p class="list-group-item-text">{{ recipe.description }}</p>
+            </div>
+            <span class="pull-right">
+                <img 
+                    [src]="recipe.imagePath"
+                    alt="{{ recipe.name }}" 
+                    class="img-responsive" 
+                    style="max-height: 50px;"
+                >
+            </span>
+        </a>
+        <app-recipe-item></app-recipe-item>
+    </div>
+</div>
+#+END_SRC
