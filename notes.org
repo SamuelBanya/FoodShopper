@@ -111,3 +111,66 @@ export class Recipe {
     }
 }
 #+END_SRC
+
+* How The 'recipe' Model Was Added To The 'recipe-list' Component
+- I specifically defined the 'recipe' model within the 'recipes' array variable in the 'recipe-list-component.ts' file, and also added the associated import statement:
+#+BEGIN_SRC ts
+import { Component } from '@angular/core';
+import { Recipe } from '../recipe.model';
+
+@Component({
+  selector: 'app-recipe-list',
+  templateUrl: './recipe-list.component.html',
+  styleUrls: ['./recipe-list.component.css']
+})
+export class RecipeListComponent {
+  recipes: Recipe[] = [];
+
+  constructor() {}
+
+  ngOnInit() {
+  }
+}
+#+END_SRC
+- I then created one example element in the 'Recipe[]' model array by providing strings for related parameters:
+#+BEGIN_SRC ts
+import { Component } from '@angular/core';
+import { Recipe } from '../recipe.model';
+
+@Component({
+  selector: 'app-recipe-list',
+  templateUrl: './recipe-list.component.html',
+  styleUrls: ['./recipe-list.component.css']
+})
+export class RecipeListComponent {
+  recipes: Recipe[] = [
+    new Recipe('A Test Recipe', 'This is simply a test', 'https://thebrilliantkitchen.com/wp-content/uploads/2022/08/General-Tsos-chicken.jpg.webp');
+  ];
+
+  constructor() {}
+
+  ngOnInit() {
+  }
+}
+#+END_SRC
+- I then added more Bootstrap styling within the 'recipe-list.component.html' file so that it would have a left and right section, the left being for the information for the recipe, and the right being for the image for the recipe:
+#+BEGIN_SRC html
+import { Component } from '@angular/core';
+import { Recipe } from '../recipe.model';
+
+@Component({
+  selector: 'app-recipe-list',
+  templateUrl: './recipe-list.component.html',
+  styleUrls: ['./recipe-list.component.css']
+})
+export class RecipeListComponent {
+  recipes: Recipe[] = [
+    new Recipe('A Test Recipe', 'This is simply a test', 'https://thebrilliantkitchen.com/wp-content/uploads/2022/08/General-Tsos-chicken.jpg.webp')
+  ];
+
+  constructor() {}
+
+  ngOnInit() {
+  }
+}
+#+END_SRC
