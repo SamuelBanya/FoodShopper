@@ -5,7 +5,7 @@ CENTER:
 
 LEFT:
 - Shopping List:
-- Shopping List 
+- Shopping List
 - Shopping List Edit
 
 RIGHT:
@@ -25,7 +25,7 @@ This also involves:
 * How The 'header' Component Was Created
 - I created this manually as per the video within the 'src/app/header' directory
 
-* How The 'recipes' Component Was Created 
+* How The 'recipes' Component Was Created
 - You can use the 'ng generate component' command, but I opted to use the alias version aka 'ng g c (name of new component)'
 - I also used the '--skip-tests' parameter to prevent Angular from adding a testing file which isn't needed right now
 #+BEGIN_SRC bash
@@ -81,15 +81,15 @@ ng g c shopping-list/shopping-edit --skip-tests
 #+END_SRC
 
 I then added the following to the 'src/app/header/header.component.ts' file:
-#+BEGIN_SRC ts 
+#+BEGIN_SRC ts
 collapsed = true;
 #+END_SRC
 
 * How The 'recipe' Model Was Created
 - I created a new model by creating a new file called 'recipe.model.ts' in the 'recipes' folder
-- I then exported a Typescript class called 'Recipe' within that file 
+- I then exported a Typescript class called 'Recipe' within that file
 - I then created the 'name' property and made sure it was 'public' to allow it to be available wherever this is imported
-- This can be found here: 
+- This can be found here:
 #+BEGIN_SRC ts
 export class Recipe {
     public name: string;
@@ -188,9 +188,9 @@ export class RecipeListComponent {
 <hr />
 <div class="row">
     <div class="col-xs-12">
-        <a 
-            href="#" 
-            class="list-group-item clearfix" 
+        <a
+            href="#"
+            class="list-group-item clearfix"
             *ngFor="let recipe of recipes"
         >
             <div class="pull-left">
@@ -198,10 +198,10 @@ export class RecipeListComponent {
                 <p class="list-group-item-text">{{ recipe.description }}</p>
             </div>
             <span class="pull-right">
-                <img 
+                <img
                     [src]="recipe.imagePath"
-                    alt="{{ recipe.name }}" 
-                    class="img-responsive" 
+                    alt="{{ recipe.name }}"
+                    class="img-responsive"
                     style="max-height: 50px;"
                 >
             </span>
@@ -227,8 +227,8 @@ I added Bootstrap styling to the 'recipe-detail.component.html' file which inclu
 <div class="row">
     <div class="col-xs-12">
         <div class="btn-group">
-            <button 
-                type="button" 
+            <button
+                type="button"
                 class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
@@ -250,3 +250,22 @@ I added Bootstrap styling to the 'recipe-detail.component.html' file which inclu
     </div>
 </div>
 #+END_SRC
+* How I Added A New Shopping List HTML Page
+I added the following to the '/home/sam/Projects/AngularProjects/FoodShopper/food-shopper/src/app/shopping-list/shopping-list.component.html' file:
+#+begin_src html
+<div class="row">
+    <div class="col-xs-10">
+        <app-shopping-edit></app-shopping-edit>
+        <hr />
+        <ul class="list-group"><a class="list-group-item" style="cursor: pointer"></a></ul>
+    </div>
+</div>
+#+end_src
+
+I then added a corresponding 'ingredients' array to the '/home/sam/Projects/AngularProjects/FoodShopper/food-shopper/src/app/shopping-list/shopping-list.component.ts' component file:
+#+begin_src ts
+export class ShoppingListComponent {
+  ingredients = [];
+
+}
+#+end_src
