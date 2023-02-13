@@ -293,3 +293,47 @@ export class Ingredient {
   constructor(public name: string, public amount: number) {}
 }
 #+end_src
+
+* How I Added The 'Ingredient' Model To The 'ShoppingListComponent'
+I then added the following to the 'src/app/shopping-list/shopping-list.component.ts' file so that I could import the new 'Ingredient' model accordingly:
+
+#+begin_src ts
+import { Component } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
+
+@Component({
+  selector: 'app-shopping-list',
+  templateUrl: './shopping-list.component.html',
+  styleUrls: ['./shopping-list.component.css']
+})
+export class ShoppingListComponent {
+  ingredients: Ingredient[] = [
+    new Ingredient('Apples', 5),
+    new Ingredient('Tomatoes', 10)
+  ];
+
+  constructor() {}
+
+  ngOnInit() {
+  }
+
+}
+#+end_src
+
+I then made the following revisions to the 'src/app/shopping-list/shopping-list.component.html' file to interpolate the actual ingredient's name and amount via 'ingredient.name' and 'ingredient.amount' accordingly:
+#+begin_src html
+<div class="row">
+    <div class="col-xs-10">
+        <app-shopping-edit></app-shopping-edit>
+        <hr />
+        <ul class="list-group"><a
+            class="list-group-item"
+            style="cursor: pointer"
+            *ngFor="let ingredient of ingredients"
+        >
+            {{ ingredient.name }} ({{ ingredient.amount }})
+        </a>
+        </ul>
+    </div>
+</div>
+#+end_src
